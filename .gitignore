@@ -1,0 +1,42 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Java ###
+*.class
+
+### Project Files ###
+Competitive\ Coding\ Practice.iml
+Main.java
+
+# Ignore any source-specific folders or files (update if necessary)
+src/Pr/
+src/Proble/
