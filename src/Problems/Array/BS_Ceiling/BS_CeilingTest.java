@@ -20,7 +20,7 @@ public class BS_CeilingTest {
                 {
                         {-10, -5, 0, 5, 10, 15},
                         {1},
-                        {4} // Ceiling is 10 at index 4
+                        {3} // Ceiling is 5 at index 3
                 },
                 // Case 3: Target < smallest element
                 {

@@ -16,11 +16,12 @@ public class BinarySearchSolution {
         while(start <= end) {
             mid = getMid(start, end);
             if (target == arr[mid]) {
+                // to handle duplicates
+                // must return position of 1st duplicate number
                 if (mid == 0 || arr[mid - 1] != target) {
                     return mid;
                 }
                 end = mid - 1;
-
             } else if (target < arr[mid]) {
                 end = mid - 1;
             } else if (target > arr[mid]) {
