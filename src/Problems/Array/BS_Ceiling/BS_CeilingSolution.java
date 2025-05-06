@@ -16,9 +16,6 @@ public class BS_CeilingSolution {
         if (arr.length == 0 || target > arr[end]) {
             return result;
         }
-        if (target < arr[start]) {
-            return start;
-        }
 
         while(start <= end) {
             mid = getMid(start, end);
@@ -30,16 +27,8 @@ public class BS_CeilingSolution {
                 start = mid + 1;
             }
         }
-        if (mid >= arr.length - 1) {
-            mid --;
-        }
-        if (target > arr[mid]) {
-            result = mid + 1;
-        } else {
-            result = mid;
-        }
-        System.out.println("mid = " + mid);
-        return result;
+
+        return start;
 
     }
 
