@@ -3,9 +3,9 @@ package Problems.Recursion.Sum_of_n_numbers;
 public class Sum_of_n_numbers_TailRecursionSolution implements SumOfNNumbersSolutionInterface {
 
     /**
-     * Returns the sum of the first n natural numbers using recursion.
+     * Calculates the sum of the first n natural numbers using tail recursion.
      *
-     * @param n the number of terms to sum; should be a positive integer
+     * @param n the number of natural numbers to sum; must be positive
      * @return the sum of the first n natural numbers
      */
     public int getSum(int n) {
@@ -13,9 +13,10 @@ public class Sum_of_n_numbers_TailRecursionSolution implements SumOfNNumbersSolu
     }
 
     /**
-     * Recursively calculates the sum of the first n natural numbers.
+     * Computes the sum of the first n natural numbers using tail recursion with an accumulator.
      *
-     * @param n the number of terms to sum; should be a positive integer
+     * @param n the current number to add; should be a non-negative integer
+     * @param acc the accumulator holding the running total
      * @return the sum of all natural numbers from 1 to n
      */
     private int getSumOfNNumbersByRecursion(int n, int acc) {

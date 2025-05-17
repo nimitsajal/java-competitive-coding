@@ -3,11 +3,12 @@ package Problems.Recursion.Sum_of_n_numbers;
 @FunctionalInterface
 interface TailRecursiveSumInterface {
     /****
- * Computes the sum of the first n natural numbers using recursion.
+ * Calculates the sum of the first n natural numbers using tail recursion.
  *
- * @param self the recursive function instance, enabling recursive calls
- * @param n the number up to which the sum is calculated
- * @return the sum of the first n natural numbers
+ * @param self the recursive function instance for enabling tail-recursive calls
+ * @param n the upper bound of the natural numbers to sum
+ * @param acc the accumulator holding the running total during recursion
+ * @return the computed sum of the first n natural numbers
  */
     int getSum(TailRecursiveSumInterface self, int n, int acc);
 }
