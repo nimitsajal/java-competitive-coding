@@ -22,7 +22,7 @@ public class Sum_of_n_numbers_TailRecursionSolution implements SumOfNNumbersSolu
     private int getSumOfNNumbersByRecursion(int n, int acc) {
 
         if (n == 0) {
-            return 0;
+            return acc;
         }
 
         return getSumOfNNumbersByRecursion(n-1, n+acc);
