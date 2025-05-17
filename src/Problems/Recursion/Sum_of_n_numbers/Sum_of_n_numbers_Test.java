@@ -2,8 +2,21 @@ package Problems.Recursion.Sum_of_n_numbers;
 
 public class Sum_of_n_numbers_Test {
 
-    static Sum_of_n_numbers_IterationSolution iterationSolution = new Sum_of_n_numbers_IterationSolution();
-     static Sum_of_n_numbers_RecursionSolution recursionSolution = new Sum_of_n_numbers_RecursionSolution();
+    static Sum_of_n_numbers_IterationSolution iterationSolutionClass = new Sum_of_n_numbers_IterationSolution();
+    static Sum_of_n_numbers_RecursionSolution recursionSolutionClass = new Sum_of_n_numbers_RecursionSolution();
+
+    static SumOfNNumbersSolutionInterface iterationSolutionLambda = (int n) -> {
+        int res = 0;
+        for (int i=1; i<=n; i++) {res += i;}
+        return res;
+    };
+
+    static SumOfNNumbersSolutionInterface recursionSolutionLambda = (int n) -> {
+        RecursiveSumInterface recursive = (RecursiveSumInterface self, int m) -> {
+            return m == 1 ? 1 : m + self.getSum(self, m-1);
+        };
+        return recursive.getSum(recursive, n);
+    };
 
     public static void main(String[] args) {
 
@@ -14,8 +27,10 @@ public class Sum_of_n_numbers_Test {
                 {10, 55}
         };
 
-        runTests(iterationSolution, inputs);
-        runTests(recursionSolution, inputs);
+        runTests(iterationSolutionClass, inputs);
+        runTests(recursionSolutionClass, inputs);
+        runTests(iterationSolutionLambda, inputs);
+        runTests(recursionSolutionLambda, inputs);
 
     }
 
