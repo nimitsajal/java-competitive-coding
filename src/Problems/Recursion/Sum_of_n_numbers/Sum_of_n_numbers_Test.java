@@ -2,15 +2,20 @@ package Problems.Recursion.Sum_of_n_numbers;
 
 public class Sum_of_n_numbers_Test {
 
+    // initializing the dedicated solution class for iterative solution
     static Sum_of_n_numbers_IterationSolution iterationSolutionClass = new Sum_of_n_numbers_IterationSolution();
+
+    // initializing the dedicated solution class for recursive solution
     static Sum_of_n_numbers_RecursionSolution recursionSolutionClass = new Sum_of_n_numbers_RecursionSolution();
 
+    // implementing a lambda function for iterative solution
     static SumOfNNumbersSolutionInterface iterationSolutionLambda = (int n) -> {
         int res = 0;
         for (int i=1; i<=n; i++) {res += i;}
         return res;
     };
 
+    // implementing a lambda function for recursive solution
     static SumOfNNumbersSolutionInterface recursionSolutionLambda = (int n) -> {
         RecursiveSumInterface recursive = (RecursiveSumInterface self, int m) -> {
             return m == 1 ? 1 : m + self.getSum(self, m-1);
@@ -21,6 +26,7 @@ public class Sum_of_n_numbers_Test {
     public static void main(String[] args) {
 
 
+        // defining test cases
         int[][] inputs = {
                 {3, 6},
                 {5, 15},
