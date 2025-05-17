@@ -5,8 +5,11 @@ public class Sum_of_n_numbers_Test {
     // initializing the dedicated solution class for iterative solution
     static Sum_of_n_numbers_IterationSolution iterationSolutionClass = new Sum_of_n_numbers_IterationSolution();
 
-    // initializing the dedicated solution class for recursive solution
-    static Sum_of_n_numbers_RecursionSolution recursionSolutionClass = new Sum_of_n_numbers_RecursionSolution();
+    // initializing the dedicated solution class for head recursive solution
+    static Sum_of_n_numbers_HeadRecursionSolution headRecursionSolutionClass = new Sum_of_n_numbers_HeadRecursionSolution();
+
+    // initializing the dedicated solution class for tail recursive solution
+    static Sum_of_n_numbers_TailRecursionSolution tailRecursionSolutionClass = new Sum_of_n_numbers_TailRecursionSolution();
 
     // implementing a lambda function for iterative solution
     static SumOfNNumbersSolutionInterface iterationSolutionLambda = (int n) -> {
@@ -16,11 +19,18 @@ public class Sum_of_n_numbers_Test {
     };
 
     // implementing a lambda function for recursive solution
-    static SumOfNNumbersSolutionInterface recursionSolutionLambda = (int n) -> {
-        RecursiveSumInterface recursive = (RecursiveSumInterface self, int m) -> {
-            return m == 1 ? 1 : m + self.getSum(self, m-1);
+    static SumOfNNumbersSolutionInterface headRecursionSolutionLambda = (int n) -> {
+        HeadRecursiveSumInterface recursive = (HeadRecursiveSumInterface self, int m) -> {
+            return m == 0 ? 0 : m + self.getSum(self, m-1);
         };
         return recursive.getSum(recursive, n);
+    };
+
+    static SumOfNNumbersSolutionInterface tailRecursionSolutionLambda = (int n) -> {
+        TailRecursiveSumInterface recursive = (TailRecursiveSumInterface self, int m, int acc) -> {
+            return m == 0 ? acc : self.getSum(self, m-1, m + acc);
+        };
+        return recursive.getSum(recursive, n, 0);
     };
 
     public static void main(String[] args) {
@@ -34,9 +44,11 @@ public class Sum_of_n_numbers_Test {
         };
 
         runTests(iterationSolutionClass, inputs);
-        runTests(recursionSolutionClass, inputs);
+        runTests(headRecursionSolutionClass, inputs);
+        runTests(tailRecursionSolutionClass, inputs);
         runTests(iterationSolutionLambda, inputs);
-        runTests(recursionSolutionLambda, inputs);
+        runTests(headRecursionSolutionLambda, inputs);
+        runTests(tailRecursionSolutionLambda, inputs);
 
     }
 

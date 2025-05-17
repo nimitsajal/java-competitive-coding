@@ -1,6 +1,6 @@
 package Problems.Recursion.Sum_of_n_numbers;
 
-public class Sum_of_n_numbers_RecursionSolution implements SumOfNNumbersSolutionInterface {
+public class Sum_of_n_numbers_HeadRecursionSolution implements SumOfNNumbersSolutionInterface {
 
     /**
      * Returns the sum of the first n natural numbers using recursion.

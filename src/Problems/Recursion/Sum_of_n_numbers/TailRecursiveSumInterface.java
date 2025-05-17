@@ -1,7 +1,7 @@
 package Problems.Recursion.Sum_of_n_numbers;
 
 @FunctionalInterface
-interface RecursiveSumInterface {
+interface TailRecursiveSumInterface {
     /****
  * Computes the sum of the first n natural numbers using recursion.
  *
@@ -9,5 +9,5 @@ interface RecursiveSumInterface {
  * @param n the number up to which the sum is calculated
  * @return the sum of the first n natural numbers
  */
-int getSum(RecursiveSumInterface self, int n);
+    int getSum(TailRecursiveSumInterface self, int n, int acc);
 }
