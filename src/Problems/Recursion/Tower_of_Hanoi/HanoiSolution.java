@@ -10,6 +10,9 @@ public class HanoiSolution implements HanoiSolutionInterface{
      * @param n the number of disks to move from the source rod to the destination rod
      */
     public void solve(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Number of disks cannot be negative");
+        }
         hanoi(n, 'A', 'B', 'C', new AtomicInteger(0));
     }
 
