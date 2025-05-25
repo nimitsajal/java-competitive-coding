@@ -2,5 +2,11 @@ package Problems.Recursion.Reverse_String;
 
 @FunctionalInterface
 public interface ReverseStringSolutionInterface {
-    String reverse(String str);
+    /**
+ * Reverses the given string.
+ *
+ * @param str the string to reverse
+ * @return the reversed string
+ */
+String reverse(String str);
 }
