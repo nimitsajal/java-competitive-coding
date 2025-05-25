@@ -1,25 +1,37 @@
 package Problems.Recursion.Tower_of_Hanoi;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class HanoiTest {
 
-    static HanoiSolution solution = new HanoiSolution();
+    static HanoiSolutionInterface solutionClass = new HanoiSolution();
+
+    static HanoiSolutionInterface solutionLambda = (int n) -> {
+      HanoiSolutionRecursionInterface recursive = (self, disk, start, middle, destination, moveCounter) -> {
+          if (disk == 0) return;
+          self.solve(self, disk - 1, start, destination, middle, moveCounter);
+          System.out.println("Move " + moveCounter.incrementAndGet() + ": Plate " + disk + " from " + start + " to " + destination);
+          self.solve(self, disk - 1, middle, start, destination, moveCounter);
+      };
+//      recursive.solve(recursive, n, 'A', 'B', 'C', new AtomicInteger(0));
+      recursive.solve(recursive, n, 'A', 'B', 'C', new AtomicInteger(0));
+    };
 
     public static void main(String[] args) {
 
         int[] inputs = {1, 2, 3, 4, 5};
 
-        runTests(solution, inputs);
+        runTests(solutionClass, inputs);
+        runTests(solutionLambda, inputs);
 
     }
 
-    static void runTests(HanoiSolution solution, int[] inputs) {
-        boolean allTestsPassed = true;
+    static void runTests(HanoiSolutionInterface solution, int[] inputs) {
 
         System.out.println("----- " + solution.getClass().getSimpleName() + " -----");
 
         for (int i = 0; i < inputs.length; i++) {
             int n = inputs[i];
-//            int expectedOutput = inputs[i][1];
 
             long startTime = System.nanoTime();
             solution.solve(n);

@@ -2,7 +2,7 @@ package Problems.Recursion.Tower_of_Hanoi;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class HanoiSolution {
+public class HanoiSolution implements HanoiSolutionInterface{
 
     public void solve(int n) {
         hanoi(n, 'A', 'B', 'C', new AtomicInteger(0));
