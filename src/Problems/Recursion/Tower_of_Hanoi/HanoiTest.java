@@ -8,7 +8,11 @@ public class HanoiTest {
 
     static HanoiSolutionInterface solutionLambda = (int n) -> {
       HanoiSolutionRecursionInterface recursive = (self, disk, start, middle, destination, moveCounter) -> {
-          if (disk == 0) return;
+          if (disk == 0 ) return;
+          if (disk < 0 ) {
+              System.out.println("Number of disks cannot be negative!");
+              return;
+          }
           self.solve(self, disk - 1, start, destination, middle, moveCounter);
           System.out.println("Move " + moveCounter.incrementAndGet() + ": Plate " + disk + " from " + start + " to " + destination);
           self.solve(self, disk - 1, middle, start, destination, moveCounter);
@@ -19,7 +23,7 @@ public class HanoiTest {
 
     public static void main(String[] args) {
 
-        int[] inputs = {1, 2, 3, 4, 5};
+        int[] inputs = {1, 2, 3, 4, 5, -4};
 
         runTests(solutionClass, inputs);
         runTests(solutionLambda, inputs);

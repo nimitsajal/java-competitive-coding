@@ -11,7 +11,8 @@ public class HanoiSolution implements HanoiSolutionInterface{
      */
     public void solve(int n) {
         if (n < 0) {
-            throw new IllegalArgumentException("Number of disks cannot be negative");
+            System.out.println("Number of disks cannot be negative!");
+            return;
         }
         hanoi(n, 'A', 'B', 'C', new AtomicInteger(0));
     }
